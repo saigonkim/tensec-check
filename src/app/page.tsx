@@ -1,65 +1,83 @@
-import Image from "next/image";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import UploadSection from "@/components/upload/UploadSection";
+import { ShieldCheck, Clock, EyeOff, Megaphone } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+    <div className="flex flex-col min-h-screen bg-[var(--color-background)]">
+      <Header />
+
+      <main className="flex-1 flex flex-col items-center px-4 py-8 sm:py-12">
+        <div className="w-full max-w-lg">
+
+          {/* Hero */}
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-[var(--color-primary)] mb-4">
+              <ShieldCheck className="w-7 h-7 text-white" />
+            </div>
+            <h1 className="text-2xl sm:text-3xl font-bold text-[var(--color-text-primary)] leading-tight mb-2">
+              등기부등본 10초 해독기
+            </h1>
+            <p className="text-[var(--color-text-secondary)] text-sm sm:text-base leading-relaxed">
+              앱 설치도, 광고도 없습니다.
+              <br className="sm:hidden" />
+              {" "}업로드 한 번으로 전세 사기 위험을 바로 확인하세요.
+            </p>
+          </div>
+
+          {/* Upload Section (Client Component) */}
+          <UploadSection />
+
+          {/* Trust Badges */}
+          <div className="mt-5 grid grid-cols-3 gap-2 sm:gap-3">
+            {[
+              { icon: EyeOff, label: "PDF는 내 기기에서만", sub: "서버에 전송 안 됨" },
+              { icon: Clock, label: "평균 10초", sub: "빠른 분석" },
+              { icon: Megaphone, label: "광고 없음", sub: "가입 불필요" },
+            ].map(({ icon: Icon, label, sub }) => (
+              <div
+                key={label}
+                className="bg-white rounded-xl p-2.5 sm:p-3 text-center border border-gray-100"
+              >
+                <Icon className="w-4 h-4 mx-auto mb-1 text-[var(--color-primary)]" />
+                <p className="text-[10px] sm:text-xs font-medium text-[var(--color-text-primary)] leading-snug">
+                  {label}
+                </p>
+                <p className="text-[9px] sm:text-[10px] text-[var(--color-text-secondary)] mt-0.5 leading-snug">
+                  {sub}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* How it works — 간단 설명 (데스크탑에서 추가 공간 활용) */}
+          <div className="mt-8 hidden sm:block">
+            <p className="text-xs text-center text-[var(--color-text-secondary)] mb-4 font-medium">
+              이용 방법
+            </p>
+            <div className="flex items-start gap-4">
+              {[
+                { step: "1", text: "대법원 인터넷등기소에서 등기부등본 PDF 발급" },
+                { step: "2", text: "PDF를 위 영역에 드래그하거나 클릭하여 선택" },
+                { step: "3", text: "AI가 위험 항목을 분석하고 안전 점수를 제공" },
+              ].map(({ step, text }) => (
+                <div key={step} className="flex-1 text-center">
+                  <div className="w-7 h-7 rounded-full bg-[var(--color-primary)] text-white text-xs font-bold flex items-center justify-center mx-auto mb-2">
+                    {step}
+                  </div>
+                  <p className="text-xs text-[var(--color-text-secondary)] leading-relaxed">
+                    {text}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
         </div>
       </main>
+
+      <Footer />
     </div>
   );
 }
