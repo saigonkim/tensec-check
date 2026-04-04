@@ -81,7 +81,7 @@ export default function Image() {
             textAlign: "center",
           }}
         >
-          등기부등본 10초 해독기
+          AI Real Estate Risk Analysis
         </div>
 
         {/* Feature badges */}
@@ -91,7 +91,7 @@ export default function Image() {
             gap: "16px",
           }}
         >
-          {["기기 내 처리 보장", "간편 로그인", "평균 10초 분석"].map((label) => (
+          {["On-Device Processing", "Easy Login", "10-Sec Fast Scan"].map((label) => (
             <div
               key={label}
               style={{
