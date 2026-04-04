@@ -7,16 +7,24 @@ export const config = {
 };
 
 export async function proxy(request: NextRequest) {
-  // KV 환경변수 미설정 시 Rate Limiting 비활성화 (로컬 개발 환경 대응)
-  if (!process.env.KV_REST_API_URL || !process.env.KV_REST_API_TOKEN) {
+  // Upstash 환경변수 미설정 시 Rate Limiting 비활성화 (로컬 개발 환경 대응)
+  if (
+    !process.env.UPSTASH_REDIS_REST_URL ||
+    !process.env.UPSTASH_REDIS_REST_TOKEN
+  ) {
     return NextResponse.next();
   }
 
-  const { kv } = await import("@vercel/kv");
+  const { Redis } = await import("@upstash/redis");
   const { Ratelimit } = await import("@upstash/ratelimit");
 
+  const redis = new Redis({
+    url: process.env.UPSTASH_REDIS_REST_URL,
+    token: process.env.UPSTASH_REDIS_REST_TOKEN,
+  });
+
   const ratelimit = new Ratelimit({
-    redis: kv,
+    redis,
     limiter: Ratelimit.slidingWindow(10, "1 d"), // 10회/일, 슬라이딩 윈도우
     prefix: "tensec:rl",
   });
