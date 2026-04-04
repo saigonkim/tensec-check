@@ -12,17 +12,17 @@ export default function Home() {
         <div className="w-full max-w-lg">
 
           {/* Hero */}
-          <div className="text-center mb-8">
-            <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-[var(--color-primary)] mb-4">
-              <ShieldCheck className="w-7 h-7 text-white" />
+          <div className="text-center mb-10 pt-4">
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-[1.25rem] bg-gradient-to-b from-[var(--color-primary)] to-[var(--color-primary-light)] mb-6 shadow-[0_8px_32px_rgba(27,58,107,0.2)]">
+              <ShieldCheck className="w-8 h-8 text-white" />
             </div>
-            <h1 className="text-2xl sm:text-3xl font-bold text-[var(--color-text-primary)] leading-tight mb-2">
+            <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[var(--color-text-primary)] leading-tight mb-4">
               등기부등본 10초 해독기
             </h1>
-            <p className="text-[var(--color-text-secondary)] text-sm sm:text-base leading-relaxed">
+            <p className="text-[var(--color-text-secondary)] text-sm sm:text-base leading-relaxed max-w-sm mx-auto">
               앱 설치도, 광고도 없습니다.
               <br className="sm:hidden" />
-              {" "}업로드 한 번으로 전세 사기 위험을 바로 확인하세요.
+              업로드 한 번으로 전세 사기 위험을 바로 확인하세요.
             </p>
           </div>
 
@@ -30,21 +30,21 @@ export default function Home() {
           <UploadSection />
 
           {/* Trust Badges */}
-          <div className="mt-5 grid grid-cols-3 gap-2 sm:gap-3">
+          <div className="mt-6 grid grid-cols-3 gap-3 sm:gap-4">
             {[
-              { icon: EyeOff, label: "PDF는 내 기기에서만", sub: "서버에 전송 안 됨" },
-              { icon: Clock, label: "평균 10초", sub: "빠른 분석" },
-              { icon: Megaphone, label: "광고 없음", sub: "가입 불필요" },
+              { icon: EyeOff, label: "기기 내 처리", sub: "서버 미전송" },
+              { icon: Clock, label: "평균 10초", sub: "초고속 분석" },
+              { icon: Megaphone, label: "완전 무료", sub: "광고/가입 없음" },
             ].map(({ icon: Icon, label, sub }) => (
               <div
                 key={label}
-                className="bg-white rounded-xl p-2.5 sm:p-3 text-center border border-gray-100"
+                className="bg-white rounded-[1.25rem] px-2 py-4 sm:p-4 text-center shadow-[0_4px_24px_rgba(0,36,82,0.04)]"
               >
-                <Icon className="w-4 h-4 mx-auto mb-1 text-[var(--color-primary)]" />
-                <p className="text-[10px] sm:text-xs font-medium text-[var(--color-text-primary)] leading-snug">
+                <Icon className="w-5 h-5 mx-auto mb-2 text-[var(--color-primary-light)] opacity-90" />
+                <p className="text-[11px] sm:text-xs font-bold tracking-tight text-[var(--color-text-primary)] leading-snug">
                   {label}
                 </p>
-                <p className="text-[9px] sm:text-[10px] text-[var(--color-text-secondary)] mt-0.5 leading-snug">
+                <p className="text-[10px] sm:text-[11px] text-[var(--color-text-secondary)] mt-1 font-medium leading-snug tracking-tight">
                   {sub}
                 </p>
               </div>

@@ -18,7 +18,7 @@ export function Card({
 }: CardProps) {
   return (
     <div
-      className={`bg-white rounded-2xl border border-gray-100 ${PADDING_STYLES[padding]} ${className}`}
+      className={`bg-white rounded-2xl shadow-[0_4px_40px_rgba(0,36,82,0.06)] overflow-hidden ${PADDING_STYLES[padding]} ${className}`}
       {...props}
     >
       {children}

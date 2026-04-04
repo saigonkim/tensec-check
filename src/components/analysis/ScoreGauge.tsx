@@ -7,9 +7,9 @@ const COLOR: Record<TrafficLight, string> = {
 };
 
 const TRACK: Record<TrafficLight, string> = {
-  green: "bg-green-100",
-  yellow: "bg-yellow-100",
-  red: "bg-red-100",
+  green: "bg-[var(--color-green-bg)]",
+  yellow: "bg-[var(--color-yellow-bg)]",
+  red: "bg-[var(--color-red-bg)]",
 };
 
 interface ScoreGaugeProps {

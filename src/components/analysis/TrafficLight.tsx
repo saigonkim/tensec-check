@@ -40,7 +40,7 @@ export function TrafficLightDisplay({ status }: TrafficLightDisplayProps) {
   return (
     <div className="flex flex-col items-center gap-2">
       {/* Housing */}
-      <div className="bg-gray-800 rounded-2xl p-3 flex flex-col gap-2.5 w-16">
+      <div className="bg-[var(--color-text-primary)] rounded-2xl p-3 flex flex-col gap-2.5 w-16 shadow-[0_4px_16px_rgba(0,36,82,0.15)]">
         <div className={`w-10 h-10 mx-auto rounded-full transition-all duration-500 ${colors.red}`} />
         <div className={`w-10 h-10 mx-auto rounded-full transition-all duration-500 ${colors.yellow}`} />
         <div className={`w-10 h-10 mx-auto rounded-full transition-all duration-500 ${colors.green}`} />

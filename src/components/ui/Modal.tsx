@@ -25,25 +25,25 @@ export function Modal({ title, onClose, children, footer }: ModalProps) {
       className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50"
       onClick={(e) => e.target === e.currentTarget && onClose()}
     >
-      <div className="bg-white rounded-2xl shadow-xl w-full max-w-md flex flex-col max-h-[90vh]">
+      <div className="bg-white rounded-2xl shadow-[0_8px_32px_rgba(0,36,82,0.12)] w-full max-w-md flex flex-col max-h-[90vh]">
         {/* Header */}
-        <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100 flex-shrink-0">
-          <h2 className="font-bold text-[var(--color-text-primary)]">{title}</h2>
+        <div className="flex items-center justify-between px-6 pt-6 pb-2 flex-shrink-0">
+          <h2 className="font-bold text-lg text-[var(--color-text-primary)] tracking-tight">{title}</h2>
           <button
             onClick={onClose}
-            className="p-1 rounded-lg hover:bg-gray-100 transition-colors"
+            className="p-1.5 rounded-full hover:bg-gray-100 transition-colors"
             aria-label="닫기"
           >
-            <X className="w-4 h-4 text-gray-400" />
+            <X className="w-4 h-4 text-[var(--color-text-secondary)]" />
           </button>
         </div>
 
         {/* Body */}
-        <div className="flex-1 overflow-y-auto p-5">{children}</div>
+        <div className="flex-1 overflow-y-auto px-6 py-4">{children}</div>
 
         {/* Footer */}
         {footer && (
-          <div className="px-5 pb-5 flex-shrink-0 border-t border-gray-100 pt-4">
+          <div className="px-6 pb-6 pt-2 flex-shrink-0">
             {footer}
           </div>
         )}

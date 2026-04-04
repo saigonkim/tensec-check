@@ -217,14 +217,10 @@ export default function UploadSection() {
           }
         }}
         className={`
-          relative bg-white border-2 border-dashed rounded-2xl p-8 text-center
-          transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)]
-          ${isLoading ? "cursor-default opacity-90" : "cursor-pointer"}
-          ${
-            isDragging
-              ? "border-[var(--color-primary)] bg-blue-50"
-              : "border-gray-200 hover:border-[var(--color-primary-light)] hover:bg-gray-50"
-          }
+          relative bg-white rounded-2xl p-8 text-center shadow-[0_4px_40px_rgba(0,36,82,0.06)]
+          transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)]
+          ${isLoading ? "cursor-default opacity-90 scale-[0.98]" : "cursor-pointer hover:-translate-y-1 hover:shadow-[0_8px_48px_rgba(0,36,82,0.08)]"}
+          ${isDragging ? "bg-blue-50 ring-2 ring-[var(--color-primary)] ring-inset" : ""}
         `}
       >
         <input
@@ -264,13 +260,13 @@ export default function UploadSection() {
 
       {/* Error */}
       {state.status === "error" && (
-        <div className="mt-4 flex items-start gap-2.5 bg-red-50 border border-red-100 rounded-xl p-4">
+        <div className="mt-4 flex items-start gap-2.5 bg-red-50 rounded-xl p-4">
           <AlertCircle className="w-4 h-4 text-red-500 flex-shrink-0 mt-0.5" />
           <div className="flex-1">
-            <p className="text-sm text-red-700 whitespace-pre-line">{state.message}</p>
+            <p className="text-sm font-medium text-red-700 whitespace-pre-line leading-relaxed">{state.message}</p>
             <button
               onClick={() => setState({ status: "idle" })}
-              className="text-xs text-red-500 underline mt-1.5"
+              className="text-xs font-bold text-red-600 hover:text-red-800 underline mt-2"
             >
               다시 시도
             </button>

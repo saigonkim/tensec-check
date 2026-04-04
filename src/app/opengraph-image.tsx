@@ -16,40 +16,55 @@ export default function Image() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          background: "linear-gradient(135deg, #1b3a6b 0%, #2e5ba8 100%)",
+          background: "linear-gradient(135deg, #001838 0%, #002452 100%)",
           padding: "60px",
         }}
       >
         {/* Shield icon (SVG inline) */}
-        <svg
-          width="80"
-          height="80"
-          viewBox="0 0 24 24"
-          fill="none"
-          style={{ marginBottom: "28px" }}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            width: "96px",
+            height: "96px",
+            background: "rgba(255,255,255,0.1)",
+            borderRadius: "24px",
+            marginBottom: "32px",
+            border: "1px solid rgba(255,255,255,0.15)",
+          }}
         >
-          <path
-            d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
-            fill="white"
-            opacity="0.9"
-          />
-          <path
-            d="M9 12l2 2 4-4"
-            stroke="#1b3a6b"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
+          <svg
+            width="48"
+            height="48"
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+            <path
+              d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+              stroke="white"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M9 12l2 2 4-4"
+              stroke="white"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </div>
 
         {/* Service name */}
         <div
           style={{
-            fontSize: "56px",
-            fontWeight: "800",
+            fontSize: "64px",
+            fontWeight: "900",
             color: "white",
-            letterSpacing: "-1px",
-            marginBottom: "16px",
+            letterSpacing: "-1.5px",
+            marginBottom: "12px",
           }}
         >
           TenSec Check
@@ -58,25 +73,16 @@ export default function Image() {
         {/* Tagline */}
         <div
           style={{
-            fontSize: "28px",
-            color: "rgba(255,255,255,0.85)",
-            marginBottom: "32px",
+            fontSize: "32px",
+            color: "rgba(255,255,255,0.8)",
+            fontWeight: "500",
+            letterSpacing: "-0.5px",
+            marginBottom: "40px",
             textAlign: "center",
           }}
         >
-          AI Property Registry Analyzer
+          등기부등본 10초 해독기
         </div>
-
-        {/* Divider */}
-        <div
-          style={{
-            width: "60px",
-            height: "3px",
-            background: "rgba(255,255,255,0.4)",
-            borderRadius: "2px",
-            marginBottom: "28px",
-          }}
-        />
 
         {/* Feature badges */}
         <div
@@ -85,16 +91,19 @@ export default function Image() {
             gap: "16px",
           }}
         >
-          {["Free", "No Sign-up", "10 Seconds"].map((label) => (
+          {["기기 내 처리 보장", "회원가입 없음", "평균 10초 분석"].map((label) => (
             <div
               key={label}
               style={{
-                background: "rgba(255,255,255,0.15)",
-                border: "1px solid rgba(255,255,255,0.3)",
-                borderRadius: "100px",
-                padding: "8px 20px",
+                background: "rgba(255,255,255,0.06)",
+                borderRadius: "16px",
+                padding: "10px 24px",
                 color: "white",
-                fontSize: "18px",
+                fontSize: "20px",
+                fontWeight: "600",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
               }}
             >
               {label}
@@ -106,9 +115,11 @@ export default function Image() {
         <div
           style={{
             position: "absolute",
-            bottom: "40px",
-            fontSize: "18px",
-            color: "rgba(255,255,255,0.5)",
+            bottom: "48px",
+            fontSize: "20px",
+            fontWeight: "500",
+            color: "rgba(255,255,255,0.4)",
+            letterSpacing: "1px",
           }}
         >
           tensec.kr

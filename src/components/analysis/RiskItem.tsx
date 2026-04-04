@@ -4,21 +4,21 @@ import { SeverityBadge } from "@/components/ui/Badge";
 
 const SEVERITY_STYLE = {
   HIGH: {
-    bg: "bg-red-50",
-    border: "border-red-100",
+    bg: "bg-[var(--color-red-bg)]",
+    border: "",
     text: "text-red-700",
     icon: XCircle,
   },
   MEDIUM: {
-    bg: "bg-yellow-50",
-    border: "border-yellow-100",
-    text: "text-yellow-700",
+    bg: "bg-[var(--color-yellow-bg)]",
+    border: "",
+    text: "text-amber-800",
     icon: AlertCircle,
   },
   LOW: {
-    bg: "bg-gray-50",
-    border: "border-gray-100",
-    text: "text-gray-600",
+    bg: "bg-[var(--color-surface-elevated)]",
+    border: "",
+    text: "text-[var(--color-text-secondary)]",
     icon: CheckCircle2,
   },
 };
@@ -28,7 +28,7 @@ export function RiskItemCard({ item }: { item: RiskItem }) {
   const Icon = cfg.icon;
 
   return (
-    <div className={`rounded-xl border p-4 ${cfg.bg} ${cfg.border}`}>
+    <div className={`rounded-xl p-4 shadow-[0_2px_12px_rgba(0,36,82,0.02)] ${cfg.bg} ${cfg.border}`}>
       <div className="flex items-start gap-3">
         <Icon className={`w-4 h-4 mt-0.5 flex-shrink-0 ${cfg.text}`} />
         <div className="flex-1 min-w-0">

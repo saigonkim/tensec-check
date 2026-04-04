@@ -9,7 +9,7 @@ interface RiskSummaryProps {
 export function RiskSummary({ items }: RiskSummaryProps) {
   if (items.length === 0) {
     return (
-      <div className="bg-white rounded-2xl border border-gray-100 p-6 text-center">
+      <div className="bg-white rounded-2xl p-6 text-center shadow-[0_4px_24px_rgba(0,36,82,0.04)]">
         <CheckCircle2 className="w-8 h-8 mx-auto mb-2 text-[var(--color-green)]" />
         <p className="font-semibold text-sm text-[var(--color-text-primary)]">
           특별한 위험 항목이 없습니다

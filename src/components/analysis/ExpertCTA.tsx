@@ -12,26 +12,26 @@ interface CTAConfig {
 
 const CTA_CONFIG: Record<TrafficLight, CTAConfig> = {
   red: {
-    bg: "bg-red-50",
-    border: "border-red-200",
+    bg: "bg-[var(--color-red-bg)]",
+    border: "",
     title: "⚠️ 위험 — 전문가 확인이 필수입니다",
     desc: "계약을 진행하기 전, 반드시 법무사나 공인중개사의 확인을 받으세요. 위험 항목이 발견된 매물은 전세금을 돌려받지 못할 위험이 있습니다.",
-    btnClass: "bg-[var(--color-red)] text-white hover:bg-red-600 active:bg-red-700",
+    btnClass: "bg-[var(--color-red)] text-white hover:bg-red-700 shadow-md",
     urgent: true,
   },
   yellow: {
-    bg: "bg-yellow-50",
-    border: "border-yellow-200",
+    bg: "bg-[var(--color-yellow-bg)]",
+    border: "",
     title: "주의가 필요합니다",
     desc: "확인이 필요한 항목이 있습니다. 전문가 검토를 통해 안전하게 계약을 진행하세요.",
-    btnClass: "bg-[var(--color-yellow)] text-white hover:bg-amber-500",
+    btnClass: "bg-amber-600 text-white hover:bg-amber-700 shadow-sm",
   },
   green: {
-    bg: "bg-green-50",
-    border: "border-green-200",
+    bg: "bg-[var(--color-green-bg)]",
+    border: "",
     title: "안전해 보입니다",
     desc: "큰 위험 항목은 없습니다. 최종 계약 전 전문가 확인을 받으면 더욱 안심할 수 있습니다.",
-    btnClass: "bg-[var(--color-green)] text-white hover:bg-green-600",
+    btnClass: "bg-[var(--color-green)] text-white hover:bg-green-800 shadow-sm",
   },
 };
 
@@ -50,7 +50,7 @@ export function ExpertCTA({ trafficLight }: ExpertCTAProps) {
 
   return (
     <div
-      className={`rounded-2xl border p-5 ${cfg.bg} ${cfg.border} ${
+      className={`rounded-2xl p-5 ${cfg.bg} ${cfg.border} ${
         cfg.urgent ? "ring-2 ring-red-300 ring-offset-1" : ""
       }`}
     >

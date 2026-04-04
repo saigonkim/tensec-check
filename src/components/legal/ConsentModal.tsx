@@ -45,15 +45,15 @@ export default function ConsentModal({ onConsent, onClose }: ConsentModalProps) 
       </div>
 
       {/* 전문 면책 조항 — 스크롤 영역 */}
-      <div className="bg-amber-50 border border-amber-100 rounded-xl p-4 max-h-40 overflow-y-auto mb-4">
+      <div className="bg-[#fff9ed] rounded-xl p-4 max-h-40 overflow-y-auto mb-4">
         <p className="text-xs text-amber-900 leading-relaxed whitespace-pre-line">
           {DISCLAIMER}
         </p>
       </div>
 
       {/* 개인정보 안내 */}
-      <div className="bg-blue-50 border border-blue-100 rounded-xl p-3 mb-4">
-        <p className="text-xs text-blue-800 leading-relaxed">
+      <div className="bg-blue-50/50 rounded-xl p-3 mb-4">
+        <p className="text-xs text-[var(--color-primary)] leading-relaxed">
           🔒 <strong>PDF 파일은 내 기기에서만 읽힙니다.</strong>
           {" "}파일 자체는 서버로 전송되지 않으며, 추출된 텍스트만 AI 분석에 사용됩니다.
           분석 후 데이터는 저장되지 않습니다.
