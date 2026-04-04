@@ -3,8 +3,8 @@
 @import "tailwindcss";
 
 :root {
-  --color-primary: #002452;
-  --color-primary-light: #1b3a6b;
+  --color-primary: #154c8a;
+  --color-primary-light: #2664a8;
   --color-background: #f3f4f5; /* surface-container-low */
   --color-surface: #ffffff;
   --color-surface-elevated: #edeeef;

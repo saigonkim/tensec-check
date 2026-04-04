@@ -16,7 +16,7 @@ export default function Image() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          background: "linear-gradient(135deg, #001838 0%, #002452 100%)",
+          background: "linear-gradient(135deg, #0d3666 0%, #154c8a 100%)",
           padding: "60px",
         }}
       >
@@ -91,7 +91,7 @@ export default function Image() {
             gap: "16px",
           }}
         >
-          {["기기 내 처리 보장", "회원가입 없음", "평균 10초 분석"].map((label) => (
+          {["기기 내 처리 보장", "간편 로그인", "평균 10초 분석"].map((label) => (
             <div
               key={label}
               style={{
