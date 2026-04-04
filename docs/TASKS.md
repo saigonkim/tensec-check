@@ -152,7 +152,8 @@
 - [ ] Rate Limiting: **IP당 10회/일** 제한 — Vercel KV + `@upstash/ratelimit` 사용
   - Vercel KV: Hobby 플랜 무료 티어 포함 (Vercel 대시보드 → Storage → KV 생성)
   - `@upstash/ratelimit` 라이브러리: sliding window 알고리즘
-  - `src/middleware.ts`: `/api/analyze` 요청에만 적용, IP 추출 → KV 조회 → 초과 시 429 응답
+  - `src/proxy.ts`: `/api/analyze` 요청에만 적용, IP 추출 → KV 조회 → 초과 시 429 응답
+  - **Next.js 16 Breaking Change**: `middleware.ts` → `proxy.ts`, 함수명도 `proxy`로 변경
   - 429 응답 시 클라이언트 에러 메시지: "오늘 분석 횟수(10회)를 초과했습니다. 내일 다시 이용해 주세요."
   - 환경변수 추가: `KV_REST_API_URL`, `KV_REST_API_TOKEN` (Vercel KV 자동 주입)
 
