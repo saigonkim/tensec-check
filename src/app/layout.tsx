@@ -3,8 +3,7 @@ import Script from "next/script";
 import "./globals.css";
 
 const BASE_URL =
-  process.env.NEXT_PUBLIC_BASE_URL ||
-  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
+  process.env.NEXT_PUBLIC_BASE_URL || "https://tensec-check.vercel.app";
 const GA_ID = process.env.NEXT_PUBLIC_GA4_ID;
 
 export const viewport: Viewport = {
