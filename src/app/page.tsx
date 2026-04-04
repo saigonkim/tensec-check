@@ -21,7 +21,7 @@ export default function Home() {
             </h1>
             <p className="text-[var(--color-text-secondary)] text-sm sm:text-base leading-relaxed max-w-sm mx-auto">
               앱 설치도, 광고도 없습니다.
-              <br className="sm:hidden" />
+              <br />
               업로드 한 번으로 전세 사기 위험을 바로 확인하세요.
             </p>
           </div>
