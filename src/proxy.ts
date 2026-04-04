@@ -7,21 +7,16 @@ export const config = {
 };
 
 export async function proxy(request: NextRequest) {
-  // Upstash 환경변수 미설정 시 Rate Limiting 비활성화 (로컬 개발 환경 대응)
-  if (
-    !process.env.UPSTASH_REDIS_REST_URL ||
-    !process.env.UPSTASH_REDIS_REST_TOKEN
-  ) {
+  // KV 환경변수 미설정 시 Rate Limiting 비활성화 (로컬 개발 환경 대응)
+  if (!process.env.KV_REST_API_URL || !process.env.KV_REST_API_TOKEN) {
     return NextResponse.next();
   }
 
   const { Redis } = await import("@upstash/redis");
   const { Ratelimit } = await import("@upstash/ratelimit");
 
-  const redis = new Redis({
-    url: process.env.UPSTASH_REDIS_REST_URL,
-    token: process.env.UPSTASH_REDIS_REST_TOKEN,
-  });
+  // Redis.fromEnv()는 KV_REST_API_URL / KV_REST_API_TOKEN을 자동으로 읽음
+  const redis = Redis.fromEnv();
 
   const ratelimit = new Ratelimit({
     redis,
