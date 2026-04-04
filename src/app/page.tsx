@@ -51,18 +51,18 @@ export default function Home() {
             ))}
           </div>
 
-          {/* How it works — 간단 설명 (데스크탑에서 추가 공간 활용) */}
-          <div className="mt-8 hidden sm:block">
+          {/* How it works — 간단 설명 */}
+          <div className="mt-8">
             <p className="text-xs text-center text-[var(--color-text-secondary)] mb-4 font-medium">
               이용 방법
             </p>
-            <div className="flex items-start gap-4">
+            <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 sm:gap-4">
               {[
                 { step: "1", text: "대법원 인터넷등기소에서 등기부등본 PDF 발급" },
                 { step: "2", text: "PDF를 위 영역에 드래그하거나 클릭하여 선택" },
                 { step: "3", text: "AI가 위험 항목을 분석하고 안전 점수를 제공" },
               ].map(({ step, text }) => (
-                <div key={step} className="flex-1 text-center">
+                <div key={step} className="flex-1 text-center w-full px-4 sm:px-0">
                   <div className="w-7 h-7 rounded-full bg-[var(--color-primary)] text-white text-xs font-bold flex items-center justify-center mx-auto mb-2">
                     {step}
                   </div>
