@@ -34,7 +34,7 @@ export async function POST(request: Request) {
 
   const genAI = new GoogleGenerativeAI(apiKey);
   const model = genAI.getGenerativeModel({
-    model: "gemini-2.0-flash",
+    model: "gemini-2.0-flash-001",
     systemInstruction: buildSystemPrompt(),
     tools: [{ functionDeclarations: [EXTRACT_RISK_FACTORS as any] }],
     toolConfig: { functionCallingConfig: { mode: FunctionCallingMode.ANY } },
@@ -42,12 +42,16 @@ export async function POST(request: Request) {
 
   // generateContentStream: Edge Runtime에서 청크 수신으로 연결 유지
   // Function Calling 응답은 스트림 완료 후 stream.response로 취합
+  // 등기부등본 텍스트가 너무 길면 Gemini 요청이 실패할 수 있으므로 50,000자로 제한
+  const truncatedText = text.length > 50000 ? text.slice(0, 50000) : text;
+
   let geminiResponse;
   try {
-    const stream = await model.generateContentStream(buildUserPrompt(text, propertyPrice));
+    const stream = await model.generateContentStream(buildUserPrompt(truncatedText, propertyPrice));
     geminiResponse = await stream.response;
   } catch (err) {
-    console.error("Gemini API error:", err);
+    const errMsg = err instanceof Error ? `${err.name}: ${err.message}` : String(err);
+    console.error("[analyze] Gemini API error:", errMsg);
     return errorResponse(
       "API_ERROR",
       "AI 분석 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.",
