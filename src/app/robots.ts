@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://tensec.kr";
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://tensec-check.vercel.app";
 
 export default function robots(): MetadataRoute.Robots {
   return {
