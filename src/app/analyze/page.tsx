@@ -30,7 +30,7 @@ function buildShareText(result: AnalyzeResponse): string {
   ];
   if (result.propertyAddress) lines.push(`주소: ${result.propertyAddress}`);
   if (result.summary) lines.push(`\n${result.summary}`);
-  lines.push(`\n등기부등본 무료 분석 → tensec.kr`);
+  lines.push(`\n등기부등본 무료 분석 → tensec-check.vercel.app`);
   return lines.join("\n");
 }
 
